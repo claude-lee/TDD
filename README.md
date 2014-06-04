@@ -10,4 +10,9 @@ After every frame the 10 pins are resettet.
 
 http://content.codersdojo.org/code-kata-catalogue/bowling-game/
 
+Strikes
 
+The player has a strike of he knocks down all 10 pins with the first roll in a frame. 
+The frame ends immediately (since there are no pins left for a second roll). 
+The bonus for that frame is the number of pins knocked down by the next two rolls. 
+That is the next frame, except if the player rolls a strike again.
