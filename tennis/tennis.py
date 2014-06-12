@@ -1,4 +1,6 @@
 class Tennis:
 
-    def calcTennisScore(self, num):
-        return num
+    scores = {0: "love", 1:"fifteen", 2:"thirty", 3:"fourty"}
+
+    def getScore(self, num):
+        return self.scores.get(num)
