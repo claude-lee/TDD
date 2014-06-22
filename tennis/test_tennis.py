@@ -4,9 +4,10 @@ import unittest
 
 class TestTennis(unittest.TestCase):
 
-    player_1 = "Steffi"
-    player_2 = "Boris"
-
+    name_1 = "Steffi"
+    name_2 = "Boris"
+    player_1 = tennis.Player(name_1)
+    player_2 = tennis.Player(name_2)
     game = tennis.Tennis(player_1, player_2)
 
     def test_score1(self):   
@@ -22,15 +23,22 @@ class TestTennis(unittest.TestCase):
         self.assertEqual("forty", self.game.getScore(3))
 
     def test_PlayerNames1(self):
-        player_id = 0
-        self.assertEqual(self.player_1, self.game.getName(player_id))
+        self.assertEqual(self.name_1, self.game.player_1.getname())
 
     def test_PlayerNames2(self):
-        player_id = 1
-        self.assertEqual(self.player_2, self.game.getName(player_id))
+        self.assertEqual(self.name_2, self.game.player_2.getname())
 
     def test_getCurrentScore(self):
-        self.assertEqual("love-love", self.game.getCurrentResult())
+        self.assertEqual("love-love", self.game.getCurrentGameScore())
+
+    def test_increaseScore(self):
+        self.player_2.scorePoint()
+        self.assertEqual("love-fifteen", self.game.getCurrentGameScore())
+
+    def test_scoreWithAdvantage(self):
+        self.player_1.setScore(3)
+        self.player_2.setScore(4)
+        self.assertEqual("Advantage " + self.name_2, self.game.getCurrentGameScore())
 
 
 
